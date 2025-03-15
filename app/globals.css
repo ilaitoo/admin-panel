@@ -3,19 +3,179 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #151c2c;
+  --bgSoft: #172135;
+  --text: white;
+  --textSoft: #b7bac1;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+/* table th,
+table td {
+  @apply text-left;
+} */
+.container {
+  @apply flex;
+}
+
+.sidebar_link {
+  @apply p-5 flex items-center gap-[10px] my-[5px] rounded-[10px];
+}
+.sidebar_link:hover {
+  @apply bg-[#2e374a];
+}
+table td {
+  @apply p-[10px];
+}
+.user_img {
+  @apply rounded-[5px] text-sm text-white p-[5px];
+}
+.status {
+  @apply rounded-[5px] p-[5px] text-sm text-white;
+}
+
+.pending {
+  @apply bg-[#f7cb7375];
+}
+
+.done {
+  @apply bg-[#afd6ee75];
+}
+
+.cancelled {
+  @apply bg-[#f7737375];
+}
+.user {
+  @apply flex gap-[10px] items-center;
+}
+
+.item {
+  @apply bg-gradient-to-t from-[#182237] to-[#253352] py-5 px-6 rounded-[10px] relative mb-5;
+}
+.bg_container {
+  @apply absolute right-0 bottom-0 w-1/2 h-1/2;
+}
+
+.text {
+  @apply flex flex-col gap-6;
+}
+.title {
+  @apply font-medium text-xl;
+}
+.subtitle {
+  @apply text-[--textSoft] text-sm;
+}
+
+.desc {
+  @apply text-[--textSoft] text-sm;
+}
+.button {
+  @apply p-[10px] flex items-center gap-[10px] w-max bg-[#5d57c9] text-white rounded-[5px] cursor-pointer;
+}
+
+.basic_table {
+  @apply w-full;
+}
+
+.basic_table .object_td {
+  @apply flex items-center gap-[10px];
+}
+
+.basic_table .object_td .object_img {
+  @apply rounded-full object-cover;
+}
+.basic_table .btns_td {
+  @apply flex gap-[10px];
+}
+
+table td,
+table th {
+  @apply p-[10px] text-left;
+}
+.basic_table .btn {
+  @apply py-[5px] px-[10px] rounded-[5px] text-[--text] cursor-pointer;
+}
+.pagination_btn {
+  @apply py-[5px] px-[10px] cursor-pointer disabled:cursor-not-allowed bg-[#ddd] text-black rounded-md;
+}
+.pagination_btn:disabled {
+  @apply cursor-not-allowed;
+}
+
+.basic_form {
+  @apply flex flex-wrap justify-between flex-col;
+}
+
+.basic_form input,
+.basic_form textarea,
+.basic_form select {
+  @apply p-5 bg-[--bg] text-[--text] border-solid border-[2px] border-[#2e374a] mb-6 rounded-[5px];
+}
+
+/* .basic_form input {
+  @apply w-[45%];
+} */
+
+/* .basic_form select,
+.basic_form textarea {
+  @apply w-full;
+} */
+.basic_form button {
+  @apply w-full p-[30px] bg-teal-500 text-[--text] rounded-[5px] cursor-pointer;
+}
+.view_user_form {
+  @apply flex flex-col;
+}
+.view_user_form input,
+.view_user_form textarea,
+.view_user_form select {
+  @apply p-4 rounded-[5px] border-[2px] border-solid border-[#2e374a] bg-[--bgSoft] text-[--text] my-[10px];
+}
+.view_user_form label {
+  @apply text-[12px];
+}
+.view_user_form button {
+  @apply bg-teal-500 p-5 rounded-[5px] text-[--text] cursor-pointer mt-5 w-full;
+}
+/*  */
+.view_product_form {
+  @apply flex flex-col;
+}
+.view_product_form input,
+.view_product_form textarea,
+.view_product_form select {
+  @apply p-4 rounded-[5px] border-[2px] border-solid border-[#2e374a] bg-[--bgSoft] text-[--text] my-[10px];
+}
+.view_user_form label {
+  @apply text-[12px];
+}
+.view_product_form button {
+  @apply bg-teal-500 p-5 rounded-[5px] text-[--text] cursor-pointer;
+}
+
+.login_form {
+  @apply bg-[--bgSoft] p-[50px] w-[500px] h-[500px] flex flex-col items-center justify-center gap-[30px] rounded-[10px];
+}
+.login_form input {
+  @apply w-full p-5 border-[2px] border-solid border-[#2e374a] bg-[--bg] text-[--text] rounded-[5px];
+}
+.login_form button {
+  @apply w-[250px] p-4 bg-teal-500 rounded-[5px] cursor-pointer text-[--text];
+}
+
+.category_input {
+  @apply bg-[--bg] text-[--text]  rounded-[10px] my-[10px] border-[#2e374a] border-solid border-2;
+}
+
+.category_table_btn {
+  @apply px-4 py-2 ml-2  rounded-[5px] cursor-pointer text-[--text];
 }

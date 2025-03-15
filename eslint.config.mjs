@@ -6,6 +6,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
+  rules: {
+    "react/jsx-wrap-multilines": ["error", { return: "parens" }],
+  },
+
   baseDirectory: __dirname,
 });
 
