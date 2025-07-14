@@ -3,6 +3,7 @@ import axios from "axios";
 import { redirect, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { v4 as uniqueId } from "uuid";
+import CategoriesTable from "./CategoriesTable";
 
 function CategoriesLayout({ categories }) {
   const [editingCategory, setEditingCategory] = useState(null);
@@ -175,56 +176,11 @@ function CategoriesLayout({ categories }) {
           )}
         </form>
       </div>
-      <table className=" w-full">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Parent</th>
-            <th>Properties</th>
-            <th>Created at</th>
-            <th colSpan={2} className="text-center">
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {categories.length > 0 &&
-            categories.map((category) => (
-              <tr key={category._id}>
-                <td>{category.name}</td>
-                <td>{category?.parent?.name}</td>
-                <td>
-                  {category?.properties?.length > 0 &&
-                    category?.properties.map((property) => (
-                      <div key={property.id || property.name}>
-                        {property.name}:{" "}
-                        {property.values?.length > 0 &&
-                          property.values.join(", ")}
-                      </div>
-                    ))}
-                </td>
-                <td>{category.createdAt?.toString().slice(0, 10)}</td>
-                <td colSpan={2} className=" text-center">
-                  <button
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                      edit(category);
-                    }}
-                    className="category_table_btn bg-teal-500"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => deleteCategory(category._id)}
-                    className="category_table_btn "
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      <CategoriesTable
+        edit={edit}
+        deleteCategory={deleteCategory}
+        categories={categories}
+      />
     </>
   );
 }

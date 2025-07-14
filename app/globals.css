@@ -27,9 +27,6 @@ table td {
   @apply flex;
 }
 
-.sidebar_link {
-  @apply p-5 flex items-center gap-[10px] my-[5px] rounded-[10px];
-}
 .sidebar_link:hover {
   @apply bg-[#2e374a];
 }

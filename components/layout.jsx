@@ -4,11 +4,9 @@ import Sidebar from "./Sidebar";
 
 export default function Layout({ children }) {
   return (
-    <div className="flex">
-      <div className="flex-1 bg-[--bgSoft] p-5 min-h-screen">
-        <Sidebar />
-      </div>
-      <div className="flex-[4] p-5">
+    <div className="flex h-screen overflow-hidden">
+      <Sidebar />
+      <div className="flex-[4] flex flex-col p-5 overflow-scroll">
         <Navbar />
         {children}
         <Footer />

@@ -23,7 +23,7 @@ function LoginForm() {
           type="submit"
           className=" mx-8 mt-10 disabled:bg-[#516284]"
         >
-          {isPending ? "Verifying" : "Submit"}
+          {isPending ? "Verifying..." : "Submit"}
         </button>
         {errorMessage && <div className="text-red-400">{errorMessage}</div>}
       </form>

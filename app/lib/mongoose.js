@@ -9,6 +9,6 @@ export async function mongooseConnection() {
     }
   } else {
     const uri = process.env.MONGODB_URI;
-    return mongoose?.connect(uri);
+    return await mongoose?.connect(uri);
   }
 }

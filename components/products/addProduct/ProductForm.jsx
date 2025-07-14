@@ -62,13 +62,20 @@ function ProductForm({ categories }) {
   }
   async function saveProduct(ev) {
     ev.preventDefault();
-    if (!(Object.keys(productProperties).length > 0)) {
+    console.log(propertiesToFill.length);
+    if (
+      !(Object.keys(productProperties).length > 0) &&
+      propertiesToFill.length > 0
+    ) {
       setPropertiesErr(true);
+      return;
     } else {
       setPropertiesErr(false);
     }
+
     if (!(images.length > 0)) {
       setImagesErr(true);
+      return;
     } else {
       setImagesErr(false);
     }

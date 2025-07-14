@@ -11,6 +11,7 @@ export async function POST(req) {
     throw new Error("Failed creating category.");
   }
 }
+
 export async function PUT(req) {
   const { name, parent, properties } = await req.json();
   const id = req.nextUrl.searchParams.get("id");
